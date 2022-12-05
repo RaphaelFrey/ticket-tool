@@ -1,27 +1,26 @@
 package com.chixsaw.tickettool.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import jakarta.persistence.*;
+import lombok.*;
 
 /**
  * Created by Raphael Frey on 04.12.2022
  */
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Entity
 @Table(name = "employee")
-public class Employee extends BaseEntity {
-    @Column(name = "email")
-    private String mail;
-    @Column(name = "password")
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String email;
+
     private String password;
-    @Column(name = "username")
+
     private String username;
 }
